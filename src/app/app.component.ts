@@ -1,12 +1,26 @@
-import { Component } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
-// import 'rxjs/Rx';
+import { Component, OnInit } from '@angular/core';
+import {
+  Routes,
+  RouterModule,
+  Router,
+  ActivatedRoute,
+} from '@angular/router';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
-}) 
-export class AppComponent {
-  title = 'app';
+})
+export class AppComponent implements OnInit {
+  constructor(
+    private router: Router,
+    private actRoute: ActivatedRoute,
+  ) { }
+
+  ngOnInit() {
+
+    this.router.navigate(['/kandidater']);
+
+  }
 }
