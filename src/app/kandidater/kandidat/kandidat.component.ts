@@ -1,5 +1,5 @@
 import { Logo } from './../../services/logo';
-// import * as jsPDF from 'jspdf';
+import * as jsPDF from 'jspdf';
 
 import { FormGroup, Validators } from '@angular/forms';
 // tslint:disable:comment-format
@@ -19,6 +19,8 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 import { NgForm } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { DataStorageService } from '../../services/data.storage.service';
+
+
 
 
 @Component({
@@ -69,6 +71,8 @@ export class KandidatComponent implements OnInit, OnChanges {
 
 
   leggTilCvElement() {
+
+
     if (this.objekt.cv_poster === undefined) {
       this.objekt.cv_poster = [];
     }
@@ -233,6 +237,7 @@ export class KandidatComponent implements OnInit, OnChanges {
 
 
 
+
   fyllListeneTilUtskriften(inn_post, data) {
     const list: any[] = [];
     for (let i = 0; i < data.cv_poster.length; i++) {
@@ -252,6 +257,8 @@ export class KandidatComponent implements OnInit, OnChanges {
     this.logoImage = 'data:image/jpeg;base64,' + this.logo.logo.image;
     this.dss.get(this.objekt.id, 'kandidater')
       .subscribe((data) => {
+
+        /*
         const doc = new jsPDF();
         const logostorrelse = 20;
         const skrift = 12;
@@ -305,7 +312,7 @@ export class KandidatComponent implements OnInit, OnChanges {
         doc.setTextColor(100);
         doc.setTextColor(100);
         doc.save(this.objekt.fornavn + '-' + this.objekt.etternavn + '.pdf');
-
+*/
       },
         (error) => {
         }

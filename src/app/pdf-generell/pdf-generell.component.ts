@@ -48,7 +48,6 @@ export class PdfGenerellComponent implements OnInit, OnChanges {
     const blob = new Blob([data], { type: 'application/octet-stream' });
 
     this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
-
     console.log('*************************** PDF init ***********************');
     this.setUp();
   }
@@ -60,33 +59,24 @@ export class PdfGenerellComponent implements OnInit, OnChanges {
 
 
   setUp() {
+   // console.log('setuppppp');
     if (this.objekt.image_id) {
       this.id = this.objekt.image_id;
       this.tekst = 'photo_library';
       this.undertekst = 'Endre pdf';
+      console.log('setuppppp');
       this.dss.get(this.objekt.image_id, 'images')
-
-        //this.dss.downloadPDF(this.objekt.image_id, 'images')
         .subscribe((data) => {
-
-          // const blob = new Blob([data.image], { type: 'application/pdf' });
+          console.log('setuppppp');
            this.imagePdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfType + data.image);
-          // const data = 'some text';
-          // const blob = new Blob([data.image], { type: 'application/octet-stream' });
-          // const blob = new Blob([data.image], { type: 'application/pdf' });
-          // this.imagePdf = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
-          // const url = window.URL.createObjectURL(data.image);
-          // this.imagePdf = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-          // this.showFile(data.image);
-
-
-
         },
           (error) => {
+            console.log('setuppppperr');
             console.log(error);
           }
         );
     } else {
+      console.log('setuppppp else');
       this.imagePdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfType + '');
       this.tekst = 'add_a_photo';
       this.undertekst = 'Legg inn pdf';
@@ -101,6 +91,8 @@ export class PdfGenerellComponent implements OnInit, OnChanges {
     for (let i = 0; i < 10; i++) {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
     }
+
+    console.log('id er laget');
     return text;
   }
 

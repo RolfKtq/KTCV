@@ -13,7 +13,7 @@ import { DataStorageService } from '../../../../services/data.storage.service';
 export class CvKursComponent implements OnInit {
   @Input() objekt: any;
   //@Input() type: string;
- 
+
   @Output() cvEndring: EventEmitter<any> = new EventEmitter();
   isFoo: boolean = false;
 
@@ -56,7 +56,7 @@ export class CvKursComponent implements OnInit {
     } else {
       this.objekt.utskrift = 'nei';
     }
-   
+
 
     this.objekt.beskrivelse = beskrivelse.value;
     this.objekt.fra_dato = fra_dato.value;
@@ -79,7 +79,7 @@ export class CvKursComponent implements OnInit {
   }
 
 
-  red() {  
+  red() {
     if (this.objekt.id === 'ny') {
       delete this.objekt.id;
       this.dss.ny(this.objekt, 'cv_poster').subscribe((res) => {

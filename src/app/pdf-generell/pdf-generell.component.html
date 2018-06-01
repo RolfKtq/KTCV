@@ -1,4 +1,3 @@
-
 <table>
     <tr>
       <td style="width:70%">
@@ -18,22 +17,10 @@
       </td>
     </tr>
   </table>
-  
-  
-  
+    
   <img src="./assets/img/favicon.svg" style="height:350px;" *ngIf="!objekt.image_id">
   
-  
-  <!--
-  <object [attr.data]="imagePdf" 
-  width="100%" height="100%"></object>
-  <object [attr.data]="sanitizer.bypassSecurityTrustResourceUrl(imagePdf)"  style="width:100%; height:800px" *ngIf="objekt.image_id">
-  -->
-  
   <object [attr.data]="imagePdf" type="application/pdf" style="width:100%; height:800px" *ngIf="objekt.image_id">
-  
     <a [attr.href]="imagePdf">test.pdf</a>
-  
-  
   </object>
   

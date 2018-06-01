@@ -13,7 +13,9 @@ export class CvUtdanningComponent implements OnInit {
   
   constructor(public dss: DataStorageService, ) { }
   
-  ngOnInit() { }
+  ngOnInit() { 
+    console.log('artig');
+  }
 
   endrerPdf(element) {
     if (element.nytt_image) {
